@@ -1,0 +1,55 @@
+﻿@model List<an34e_project.Models.Area>
+
+@{
+
+    ViewBag.Title = "Area";
+
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-md-7">
+
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Áreas</h4>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#modal-area" style="margin-bottom:20px;">
+                        Adicionar Nova Area
+                    </button>
+
+                    <div class="clearfix"></div>
+
+                    <div class="content table-responsive table-full-width">
+                        <table id="tableCustomers" class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Área</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var areas in Model)
+                                {
+
+                                    <tr onclick="ShowArea(@areas.Id)">
+                                        <td>@areas.Id</td>
+                                        <td>@areas.Title</td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

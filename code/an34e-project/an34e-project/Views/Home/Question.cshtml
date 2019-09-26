@@ -1,0 +1,95 @@
+﻿@using an34e_project.Models
+@model List<an34e_project.Models.Question>
+
+@{
+    ViewBag.QuestionActive = "active";
+    ViewBag.Title = "Perguntas";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-md-7">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Perguntas</h4>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#modalQuestion" style="margin-bottom:20px;" onclick="showModal()">
+                            Adicionar Nova Pergunta
+                        </button>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table id="tableQuestion" class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Pergunta</th>
+                                    <th>Nível</th>
+                                    <th>Nível Necessário</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var questions in Model)
+                                {
+                                    <tr onclick="ShowQuestion(@questions.Id)">
+                                        <td>@questions.Quest</td>
+                                        <td>@questions.Level</td>
+                                        <td>@questions.RequiredLevel</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Dados da Pergunta</h4>
+                            </div>
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Pergunta</label>
+                                                <input type="text" class="form-control" id="PerguntaShow" name="PerguntaShow" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nível</label>
+                                                <input type="number" class="form-control" id="NivelShow" name="NivelShow" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nível Necessário</label>
+                                                <input type="number" class="form-control" id="NivelNecessarioShow" name="NivelNecessarioShow" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <div id="divShowQuestion" name="divShowQuestion">
+                                    <button id="updateQuestion" name="updateQuestion" class="btn" onclick="editQuestion()">Editar</button>
+                                    <button id="deleteQuestion" name="deleteQuestion" class="btn btn-danger" onclick="deleteQuestion()">Excluir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

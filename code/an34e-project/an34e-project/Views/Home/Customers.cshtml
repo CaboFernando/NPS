@@ -1,0 +1,111 @@
+﻿@using an34e_project.Models
+@model List<an34e_project.Models.Customer>
+
+@{
+    ViewBag.CustomerActive = "active";
+    ViewBag.Title = "Clientes";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-md-7">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Clientes</h4>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#modalCustomer" style="margin-bottom:20px;" onclick="showModal()">
+                            Adicionar Novo Cliente
+                        </button>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table id="tableCustomers" class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Responsável</th>
+                                    <th>Última Avaliação</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var customers in Model)
+                                {
+
+                                    <tr onclick="ShowCustomer(@customers.Id)">
+
+                                        <td>@customers.Name</td>
+                                        <td>@customers.Responsible</td>
+                                        <td>@customers.CustomerSince</td>
+
+
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Perfil do Cliente</h4>
+                            </div>
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Empresa</label>
+                                                <input type="text" class="form-control" id="nameShow" name="nameShow" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Responsável</label>
+                                                <input type="text" class="form-control" id="responsibleShow" name="responsibleShow" disabled>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    @*<div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="sinceDateShow">Data de Cadastro</label>
+                                                <input type="date" class="form-control" id="sinceDateShow" name="sinceDateShow" disabled>
+                                            </div>
+                                        </div>
+                                    </div>*@                                
+                                </form>
+                                <div id="divShowCustomer" name="divShowCustomer">
+                                    <button id="updateCustomer" name="updateCustomer" class="btn" onclick="editCustomer()">Editar</button>
+                                    <button id="deleteCustomer" name="deleteCustomer" class="btn btn-danger" onclick="deleteCustomer()">Excluir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

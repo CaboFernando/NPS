@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "AvaliableCustomers";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card container col-md-10 col-md-offset-1">
+            <h4>Clientes Elegíveis</h4>
+            <div class="content table-responsive table-full-width">
+                <table id="tableCustomers" class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Responsável</th>
+                            <th>Última Avaliação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var customers in ViewBag.AvaliableClients)
+                        {
+
+                            <tr onclick="Avaliar(@customers.Id)">
+
+                                <td>@customers.Title</td>
+                                <td>@customers.Phone</td>
+                                <td>@customers.Responsible</td>
+                                <td>@customers.Score</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>

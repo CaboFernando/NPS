@@ -1,0 +1,51 @@
+﻿@using an34e_project.Models
+@model List<an34e_project.Models.Avaliation>
+@{
+    ViewBag.AvaliationActive = "active";
+    ViewBag.Title = "Avaliações";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="content">
+                    <div id="divShowBotoes" name="divShowBotoes">
+                        <button id="btnNps" name="btnNps" class="btn" onclick="document.getElementById('btnPersonalizado').disabled = true; document.getElementById('comboClientes').hidden = false;">Avaliação NPS</button>
+                        <button id="btnPersonalizado" name="btnPersonalizado" class="btn" onclick="document.getElementById('btnNps').disabled = true; document.getElementById('comboClientes').hidden = false;">Avaliação Personalizada</button>
+                    </div>                    
+                </div>
+                <div class="content">
+                    <div>
+                        <select id="comboClientes" onchange="SearchQuest(1,0,1)" hidden>
+                            <option value="01">Cliente 1</option>
+                            <option value="02">Cliente 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="divPergunta1" class="content" hidden>
+                    <div>
+                        <h4 id="pergunta1"></h4>
+                        <input id="resposta1" style="width:10%" type="number" onchange="SearchNextQuest()"/>
+                    </div>
+                </div>
+                <div id="divPergunta2" class="content" hidden>
+                    <div>
+                        <h4 id="pergunta2"></h4>
+                        <textarea id="resposta2" style="width:40%" onchange="BtnAvaliation()"></textarea>
+                    </div>
+                </div>
+                <div id="btnAvaliation" class="content" hidden>                    
+                    <button type="button" class="btn btn-primary" onclick="saveAvaliation()" >Salvar</button>
+                    <button type="button" class="btn btn btn-danger" onclick="window.location.replace('/Home/Avaliation');">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,65 @@
+﻿<!-- Modal -->
+<div class="modal fade" id="modalEvaluation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Nova Avaliação</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="frmSaveEvaluation">
+                    <input type="hidden" id="idArea" name="idArea" />
+                    <div class="row">
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="month">Mês:</label>
+                            <select class="form-control" id="month" name="month" >
+                                <option value="01">Janeiro</option>
+                                <option value="02">Fevereiro</option>
+                                <option value="03">Março</option>
+                                <option value="04">Abril</option>
+                                <option value="05">Maio</option>
+                                <option value="06">Junho</option>
+                                <option value="07">Julho</option>
+                                <option value="08">Agosto</option>
+                                <option value="09">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="year">Ano:</label>
+                            <select class="form-control" id="year" name="year">
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+
+                            <label for="since">Cliente Desde:</label>
+                            <input class="form-control" type="date" value="" name="since"  id="since">
+
+                        </div>*@
+
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="saveEvaluation" name="saveEvaluation" onclick="btnAddEvaluation()">Salvar</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
